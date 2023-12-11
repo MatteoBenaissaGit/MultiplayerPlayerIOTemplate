@@ -47,8 +47,8 @@
   <ItemGroup>
      <Compile Include="Assets\Hierarchy 2\Editor\SelectionsRenamePopup.cs" />
      <Compile Include="Assets\Hierarchy 2\Editor\HierarchySettings.cs" />
-     <Compile Include="Assets\Hierarchy 2\Editor\HierarchyFolderEditor.cs" />
      <Compile Include="Assets\Hierarchy 2\Editor\HierarchyResources.cs" />
+     <Compile Include="Assets\Hierarchy 2\Editor\HierarchyFolderEditor.cs" />
      <Compile Include="Assets\Hierarchy 2\Editor\HierarchyEditor.cs" />
      <Compile Include="Assets\Hierarchy 2\Editor\SceneRenamePopup.cs" />
      <Compile Include="Assets\Hierarchy 2\Editor\InstantInspector.cs" />
@@ -313,19 +313,19 @@
      <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.1f1\Editor\Data\PlaybackEngines\WindowsStandaloneSupport\UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Collections.LowLevel.ILSupport">
-     <HintPath>C:\Users\benma\Documents\MultiplayerPlayerIOTemplate\MultiplayerTemplateUnityProject\Library\PackageCache\com.unity.collections@1.2.4\Unity.Collections.LowLevel.ILSupport\Unity.Collections.LowLevel.ILSupport.dll</HintPath>
+     <HintPath>C:\Users\benma\Documents\MultiPlayerIOTemplate_Git\MultiplayerTemplateUnityProject\Library\PackageCache\com.unity.collections@1.2.4\Unity.Collections.LowLevel.ILSupport\Unity.Collections.LowLevel.ILSupport.dll</HintPath>
      </Reference>
      <Reference Include="PlayerIOUnity3DClient">
-     <HintPath>C:\Users\benma\Documents\MultiplayerPlayerIOTemplate\MultiplayerTemplateUnityProject\Assets\Plugins\PlayerIOUnity3DClient.dll</HintPath>
+     <HintPath>C:\Users\benma\Documents\MultiPlayerIOTemplate_Git\MultiplayerTemplateUnityProject\Assets\Plugins\PlayerIOUnity3DClient.dll</HintPath>
      </Reference>
      <Reference Include="DOTweenEditor">
-     <HintPath>C:\Users\benma\Documents\MultiplayerPlayerIOTemplate\MultiplayerTemplateUnityProject\Assets\Plugins\Demigiant\DOTween\Editor\DOTweenEditor.dll</HintPath>
+     <HintPath>C:\Users\benma\Documents\MultiPlayerIOTemplate_Git\MultiplayerTemplateUnityProject\Assets\Plugins\Demigiant\DOTween\Editor\DOTweenEditor.dll</HintPath>
      </Reference>
      <Reference Include="DOTween">
-     <HintPath>C:\Users\benma\Documents\MultiplayerPlayerIOTemplate\MultiplayerTemplateUnityProject\Assets\Plugins\Demigiant\DOTween\DOTween.dll</HintPath>
+     <HintPath>C:\Users\benma\Documents\MultiPlayerIOTemplate_Git\MultiplayerTemplateUnityProject\Assets\Plugins\Demigiant\DOTween\DOTween.dll</HintPath>
      </Reference>
      <Reference Include="nunit.framework">
-     <HintPath>C:\Users\benma\Documents\MultiplayerPlayerIOTemplate\MultiplayerTemplateUnityProject\Library\PackageCache\com.unity.ext.nunit@1.0.6\net35\unity-custom\nunit.framework.dll</HintPath>
+     <HintPath>C:\Users\benma\Documents\MultiPlayerIOTemplate_Git\MultiplayerTemplateUnityProject\Library\PackageCache\com.unity.ext.nunit@1.0.6\net35\unity-custom\nunit.framework.dll</HintPath>
      </Reference>
      <Reference Include="mscorlib">
      <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.1f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\mscorlib.dll</HintPath>
@@ -703,16 +703,16 @@
      <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.1f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Xml.XPath.XDocument.dll</HintPath>
      </Reference>
      <Reference Include="UnityEditor.UI">
-     <HintPath>C:\Users\benma\Documents\MultiplayerPlayerIOTemplate\MultiplayerTemplateUnityProject\Library\ScriptAssemblies\UnityEditor.UI.dll</HintPath>
+     <HintPath>C:\Users\benma\Documents\MultiPlayerIOTemplate_Git\MultiplayerTemplateUnityProject\Library\ScriptAssemblies\UnityEditor.UI.dll</HintPath>
      </Reference>
      <Reference Include="UnityEngine.UI">
-     <HintPath>C:\Users\benma\Documents\MultiplayerPlayerIOTemplate\MultiplayerTemplateUnityProject\Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
+     <HintPath>C:\Users\benma\Documents\MultiPlayerIOTemplate_Git\MultiplayerTemplateUnityProject\Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
      </Reference>
      <Reference Include="UnityEditor.TestRunner">
-     <HintPath>C:\Users\benma\Documents\MultiplayerPlayerIOTemplate\MultiplayerTemplateUnityProject\Library\ScriptAssemblies\UnityEditor.TestRunner.dll</HintPath>
+     <HintPath>C:\Users\benma\Documents\MultiPlayerIOTemplate_Git\MultiplayerTemplateUnityProject\Library\ScriptAssemblies\UnityEditor.TestRunner.dll</HintPath>
      </Reference>
      <Reference Include="UnityEngine.TestRunner">
-     <HintPath>C:\Users\benma\Documents\MultiplayerPlayerIOTemplate\MultiplayerTemplateUnityProject\Library\ScriptAssemblies\UnityEngine.TestRunner.dll</HintPath>
+     <HintPath>C:\Users\benma\Documents\MultiPlayerIOTemplate_Git\MultiplayerTemplateUnityProject\Library\ScriptAssemblies\UnityEngine.TestRunner.dll</HintPath>
      </Reference>
   </ItemGroup>
   <ItemGroup>
