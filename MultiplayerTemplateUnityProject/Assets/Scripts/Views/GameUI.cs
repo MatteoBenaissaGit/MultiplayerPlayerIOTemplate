@@ -18,6 +18,7 @@ namespace Views
         [SerializeField] private Transform _debugMessageLayout;
         [SerializeField] private Slider _strengthSlider, _directionSlider;
         [SerializeField] private Button _shootButton;
+        [SerializeField] private Button _quitButton;
         [SerializeField] private TMP_Text _playerIdText;
         [SerializeField] private Transform _resultsLayout;
         [SerializeField] private ResultView _resultPrefab;
@@ -27,7 +28,9 @@ namespace Views
         {
             _playerIdText.text = playerId;
             _playerIdText.color = PlayerGameManager.Instance.PlayerColors[PlayerGameManager.Instance.Team];
+            
             _resultsLayout.gameObject.SetActive(false);
+            _quitButton.gameObject.SetActive(false);
         }
         
         public void SetTurnUI()
@@ -68,6 +71,7 @@ namespace Views
         public void InitializeBallUI(GolfBallView ball)
         {
             _strengthSlider.onValueChanged.AddListener(ball.SetStrength);
+            _directionSlider.value = 0.5f;
             _directionSlider.onValueChanged.AddListener(ball.SetDirection);
             _shootButton.onClick.AddListener(() => RequestToLaunchBall((GolfBallController)ball.Controller));
         }
@@ -101,6 +105,9 @@ namespace Views
         public void ShowResults()
         {
             _turnUI.DOScaleY(0, 0.5f);
+            
+            _quitButton.gameObject.SetActive(true);
+            _quitButton.onClick.AddListener(Application.Quit);
             
             _resultsLayout.gameObject.SetActive(true);
             Vector3 scale = _resultsLayout.localScale;

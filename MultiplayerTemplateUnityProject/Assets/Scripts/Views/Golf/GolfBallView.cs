@@ -43,6 +43,7 @@ namespace Views.Golf
 
         public void SetDirection(float value)
         {
+            value = (value - 0.5f);
             float direction = value * 360f;
             _directionUI.transform.rotation = Quaternion.Euler(0,direction,0);
         }
@@ -55,7 +56,7 @@ namespace Views.Golf
         public void LaunchBall(float direction, float strength)
         {
             strength = Mathf.Clamp(strength,0.1f, 1f) * 10;
-            direction = direction * 360f;
+            direction = (direction+0.5f) * 360f;
             PlayerGameManager.Instance.UI.DebugMessage($"ball view launch ball f:{strength} d:{(int)direction}");
             
             float angleDegrees = direction;

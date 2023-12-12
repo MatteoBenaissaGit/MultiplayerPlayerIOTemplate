@@ -24,7 +24,7 @@ namespace Golf
 
         public void BallEndMovement()
         {
-            Debug.LogError("end movement");
+            //Debug.LogError("end movement");
 
             Data.Position = View.transform.position;
             PlayerGameManager.Instance.SetEndTurn();
