@@ -9,7 +9,7 @@ namespace Views
     {
         [SerializeField] private TMP_Text _text;
         
-        private float _timerDeath = 5f;
+        private float _timerDeath = 10f;
         private bool _isDestroying;
 
         public void Set(string message)

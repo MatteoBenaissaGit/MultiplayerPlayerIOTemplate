@@ -1,4 +1,5 @@
 using System;
+using Multiplayer;
 using UnityEngine;
 using Views.Golf;
 
@@ -13,7 +14,17 @@ namespace Golf
         
         public void EndLevelHasBeenReached(GolfBallView golfBall)
         {
-            Debug.LogError($"team {golfBall.Controller.Data.Team} has reached end");
+            Debug.LogError($"team {golfBall.Controller.Data.Team} has reached end in {PlayerGameManager.Instance.GolfMoves} moves");
+
+            if (golfBall.Controller.Data.Team != PlayerGameManager.Instance.Team)
+            {
+                return;
+            }
+            
+            golfBall.Disappear();
+            PlayerGameManager.Instance.PlayerIoConnection.Send("BallDisappear", golfBall.Controller.Data.ID);
+            
+            PlayerGameManager.Instance.EndLevel();
         }
     }
 }

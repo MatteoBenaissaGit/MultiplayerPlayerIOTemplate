@@ -15,6 +15,10 @@ namespace Multiplayer
 		public Connection PlayerIoConnection { get; private set; }
 		public int Team { get; set; }
 		public int Turn { get; private set; }
+		public int PlayerCount { get; private set; }
+		public int GolfMoves { get; private set; }
+		public bool HasFinishedLevel { get; private set; }
+		public bool IsLevelEnded { get; set; }
 		
 		[field:SerializeField] public GolfLevelManager CurrentGolfLevel { get; private set; }
 	
@@ -34,8 +38,10 @@ namespace Multiplayer
 		protected override void InternalAwake()
 		{
 			//add classes for receiving message from server
+			_receivedMessageToMethod.Add("SetPlayerId", new ReceiveSetPlayerId());
 			_receivedMessageToMethod.Add("SetTeam", new ReceiveSetTeam());
 			_receivedMessageToMethod.Add("SetTurn", new ReceiveSetTurn());
+			_receivedMessageToMethod.Add("SetPlayerCount", new ReceiveSetPlayerCount());
 			_receivedMessageToMethod.Add("GetGameInfosFromServer", new ReceiveGetGameInfosFromServer());
 			_receivedMessageToMethod.Add("SendGameInfosToServer", new ReceiveSendGameInfosToServer());
 			_receivedMessageToMethod.Add("CreateGameElement", new ReceiveCreateGameElement());
@@ -45,7 +51,10 @@ namespace Multiplayer
 			_receivedMessageToMethod.Add("GetGameElementFromServer", new ReceiveGetGameElementFromServer());
 			_receivedMessageToMethod.Add("LaunchBall", new ReceiveLaunchBall());
 			_receivedMessageToMethod.Add("CorrectBall", new ReceiveCorrectBall());
-		
+			_receivedMessageToMethod.Add("SetBallMoves", new ReceiveSetBallMoves());
+			_receivedMessageToMethod.Add("EndLevel", new ReceiveEndLevel());
+			_receivedMessageToMethod.Add("BallDisappear", new ReceiveBallDisappear());
+
 			//set the application to run in background
 			Application.runInBackground = true;
 		
@@ -148,6 +157,19 @@ namespace Multiplayer
 		public void SetTurn(int turn)
 		{
 			UI.DebugMessage($"set turn {turn}");
+			if (HasFinishedLevel && IsLevelEnded == false && turn == Team)
+			{
+				Turn = turn;
+				Turn++;
+				if (Turn >= PlayerCount)
+				{
+					Turn = 0;
+				}
+				UI.DebugMessage($"--> Pass turn {turn}, already done, set turn {Turn}");
+				PlayerIoConnection.Send("SetTurn",Turn);
+				return;
+			}
+			
 			Turn = turn;
 			UI.SetTurnUI();
 		}
@@ -158,17 +180,38 @@ namespace Multiplayer
 		/// <returns>can the player play ?</returns>
 		public bool CanPlay()
 		{
-			bool isMyTurn = Turn % 2 == Team;
+			bool isMyTurn = Turn == Team;
 			return isMyTurn;
 		}
 
 		public void SetEndTurn()
 		{
 			Turn++;
+			if (Turn >= PlayerCount)
+			{
+				Turn = 0;
+			}
+			GolfMoves++;
 			PlayerIoConnection.Send("SetTurn",Turn);
 
 			Vector3 position = CurrentGolfLevel.PlayerBall.Data.Position;
 			PlayerIoConnection.Send("CorrectBallPosition", CurrentGolfLevel.PlayerBall.Data.ID, position.x, position.y, position.z);
+			PlayerIoConnection.Send("SetBallMoves", CurrentGolfLevel.PlayerBall.Data.ID, GolfMoves);
+		}
+
+		public void EndLevel()
+		{
+			Debug.LogError("--> HasEndedLevel <---");
+			
+			HasFinishedLevel = true;
+			UI.SetPlayUI(false);
+			
+			PlayerIoConnection.Send("HasEndedLevel");
+		}
+
+		public void SetPlayerCount(int count)
+		{
+			PlayerCount = count;
 		}
 	}
 }

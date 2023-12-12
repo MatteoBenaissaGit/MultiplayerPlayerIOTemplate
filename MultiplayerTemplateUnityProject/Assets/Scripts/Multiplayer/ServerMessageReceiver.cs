@@ -24,6 +24,26 @@ namespace Multiplayer
             PlayerGameManager.Instance.SetTurn(turn);
         }
     }
+    
+    public class ReceiveSetPlayerCount : ServerMessageReceiver
+    {
+        public override void Receive(Message m)
+        {
+            int playerCount = m.GetInt(0);
+            PlayerGameManager.Instance.UI.DebugMessage($"-> player count {playerCount} <-");
+            PlayerGameManager.Instance.SetPlayerCount(playerCount);
+        }
+    }
+    
+    public class ReceiveSetPlayerId : ServerMessageReceiver
+    {
+        public override void Receive(Message m)
+        {
+            string playerId = m.GetString(0);
+            PlayerGameManager.Instance.UI.DebugMessage($"-> player id {playerId} <-");
+            PlayerGameManager.Instance.UI.SetPlayerUI(playerId);
+        }
+    }
 
     /// <summary>
     /// Handle the receiving of a request to send game infos to the server
@@ -202,6 +222,52 @@ namespace Multiplayer
             PlayerGameManager.Instance.UI.DebugMessage("correct ball position");
             GolfBallView view = (GolfBallView)ball.View;
             view.CorrectPosition(new Vector3(ballX,ballY,ballZ));
+        }
+    }
+
+    public class ReceiveSetBallMoves : ServerMessageReceiver
+    {
+        public override void Receive(Message m)
+        {
+            string getGameElementId = m.GetString(0);
+            int moves = m.GetInt(1);
+            
+            GolfBallController ball = (GolfBallController)GameElementsManager.Instance.GetGameElementFromID(getGameElementId);
+            if (ball == null)
+            {
+                Debug.LogError("ball not found");
+                return;
+            }
+
+            ball.NumberOfMoves = moves;
+        }
+    }
+
+    public class ReceiveEndLevel : ServerMessageReceiver
+    {
+        public override void Receive(Message m)
+        {
+            PlayerGameManager.Instance.UI.DebugMessage("End Level, all players are done!");
+            PlayerGameManager.Instance.IsLevelEnded = true;
+            PlayerGameManager.Instance.UI.ShowResults();
+        }
+    }
+
+    public class ReceiveBallDisappear : ServerMessageReceiver
+    {
+        public override void Receive(Message m)
+        {
+            string getGameElementId = m.GetString(0);
+            
+            GolfBallController ball = (GolfBallController)GameElementsManager.Instance.GetGameElementFromID(getGameElementId);
+            if (ball == null)
+            {
+                Debug.LogError("ball not found");
+                return;
+            }
+            
+            GolfBallView view = (GolfBallView)ball.View;
+            view.Disappear();
         }
     }
     

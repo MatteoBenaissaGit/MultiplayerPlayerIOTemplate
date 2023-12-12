@@ -12,18 +12,20 @@ namespace Multiplayer
     public class GameElementsManager : Singleton<GameElementsManager>
     {
         public HashSet<GameElementController> GameElementsInGame { get; private set; }
+        public HashSet<GolfBallController> Balls { get; private set; }
 
         [SerializeField] private GameElementView _testGameElementViewPrefab;
         [SerializeField] private GameElementView _golfBallGameElementViewPrefab;
 
         private Dictionary<string, GameElementController> _idToGameElement;
         private Dictionary<GameElementController, string> _gameElementToId;
-
+        
         protected override void InternalAwake()
         {
             _idToGameElement = new Dictionary<string, GameElementController>();
             _gameElementToId = new Dictionary<GameElementController, string>();
             GameElementsInGame = new HashSet<GameElementController>();
+            Balls = new HashSet<GolfBallController>();
         }
 
         public void Initialize()
@@ -68,6 +70,7 @@ namespace Multiplayer
                         PlayerGameManager.Instance.CurrentGolfLevel.PlayerBall = (GolfBallController)gameElementController;
                         PlayerGameManager.Instance.UI.InitializeBallUI((GolfBallView)gameElementView);
                     }
+                    Balls.Add((GolfBallController)gameElementController);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(type), type, null);

@@ -1,4 +1,5 @@
 ﻿using System;
+using Controllers;
 using Golf;
 using Multiplayer;
 using TMPro;
@@ -15,7 +16,16 @@ namespace Views
         [SerializeField] private Transform _debugMessageLayout;
         [SerializeField] private Slider _strengthSlider, _directionSlider;
         [SerializeField] private Button _shootButton;
+        [SerializeField] private TMP_Text _playerIdText;
+        [SerializeField] private Transform _resultsLayout;
+        [SerializeField] private ResultView _resultPrefab;
+        [SerializeField] private Transform _playUI;
 
+        public void SetPlayerUI(string playerId)
+        {
+            _playerIdText.text = playerId;
+        }
+        
         public void SetTurnUI()
         {
             if (_turnText == null)
@@ -23,11 +33,26 @@ namespace Views
                 return;
             }
             
-            bool turnTeam0 = PlayerGameManager.Instance.Turn % 2 == 0;
-            string text = turnTeam0 ? "Turn team 0" : "Turn team 1";
-            Color color = turnTeam0 ? Color.white : Color.black;
+            GolfBallView view = null;
+            if (PlayerGameManager.Instance.CurrentGolfLevel.PlayerBall != null)
+            {
+                view = (GolfBallView)PlayerGameManager.Instance.CurrentGolfLevel.PlayerBall.View;
+            }
+            string text;
+            
+            if (PlayerGameManager.Instance.Turn == PlayerGameManager.Instance.Team)
+            {
+                text = "It's your turn !";
+                _turnText.color = Color.white;
+                if (view != null) view.SetBallUI(true);
+            }
+            else
+            {
+                text = "Waiting for other player to play...";
+                _turnText.color = Color.gray;
+                if (view != null) view.SetBallUI(false);
+            }
             _turnText.text = text;
-            _turnText.color = color;
         }
 
         public void DebugMessage(string message)
@@ -51,7 +76,9 @@ namespace Views
 
         private void RequestToLaunchBall(GolfBallController ball)
         {
-            if (PlayerGameManager.Instance.CanPlay() == false)
+            if (PlayerGameManager.Instance.CanPlay() == false
+                || PlayerGameManager.Instance.HasFinishedLevel
+                || PlayerGameManager.Instance.IsLevelEnded)
             {
                 return;
             }
@@ -60,6 +87,21 @@ namespace Views
             PlayerGameManager.Instance.PlayerIoConnection.Send("RequestToLaunchBall", 
                 ball.Data.ID, ball.Data.ElementOwnerID,
                 _strengthSlider.value, _directionSlider.value);
+        }
+
+        public void SetPlayUI(bool show)
+        {
+            _playUI.gameObject.SetActive(show);
+        }
+
+        public void ShowResults()
+        {
+            _turnText.gameObject.gameObject.SetActive(false);
+            foreach (GolfBallController ball in GameElementsManager.Instance.Balls)
+            {
+                ResultView result = Instantiate(_resultPrefab, _resultsLayout);
+                result.Set(ball.Data.ElementOwnerID, ball.NumberOfMoves-1);
+            }
         }
     }
 }

@@ -53,6 +53,7 @@
      <Compile Include="Assets\Scripts\Golf\GolfEndController.cs" />
      <Compile Include="Assets\Scripts\Views\DebugMessageUI.cs" />
      <Compile Include="Assets\Scripts\Multiplayer\GameElementsManager.cs" />
+     <Compile Include="Assets\Scripts\Views\Golf\ResultView.cs" />
      <Compile Include="Assets\Scripts\Multiplayer\PlayerGameManager.cs" />
      <Compile Include="Assets\Scripts\Controllers\GameElementData.cs" />
      <Compile Include="Assets\Scripts\Golf\GolfBallController.cs" />
@@ -64,6 +65,7 @@
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <Folder Include="Assets\TextMesh Pro\Sprites" />
+     <Folder Include="Assets\Visual\PhysicsMaterial" />
      <Folder Include="Assets\TextMesh Pro\Resources\Sprite Assets" />
      <Folder Include="Assets\Visual\kenney_minigolf-kit\Models\GLB format\Textures" />
      <Folder Include="Assets\Hierarchy 2" />

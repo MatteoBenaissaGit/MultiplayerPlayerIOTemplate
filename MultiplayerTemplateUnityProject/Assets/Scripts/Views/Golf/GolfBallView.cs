@@ -1,5 +1,6 @@
 ﻿using System;
 using Controllers;
+using DG.Tweening;
 using Golf;
 using Multiplayer;
 using UnityEngine;
@@ -89,6 +90,7 @@ namespace Views.Golf
 
             _isLaunched = false;
             GolfBallController ball = (GolfBallController)Controller;
+            _rigidbody.velocity = Vector3.zero;
             ball.BallEndMovement();
         }
         
@@ -106,6 +108,7 @@ namespace Views.Golf
             {
                 _isLaunched = false;
                 GolfBallController ball = (GolfBallController)Controller;
+                _rigidbody.velocity = Vector3.zero;
                 ball.BallEndMovement();
             }
         }
@@ -114,6 +117,20 @@ namespace Views.Golf
         {
             Controller.Data.Position = position;
             transform.position = position;
+        }
+
+        public void SetBallUI(bool show)
+        {
+            _directionUI.gameObject.SetActive(show);
+        }
+
+        public void Disappear()
+        {
+            _rigidbody.velocity = Vector3.zero;
+            _rigidbody.isKinematic = true;
+            transform.DOScale(Vector3.zero, 0.5f);
+            GolfBallController ball = (GolfBallController)Controller;
+            ball.BallEndMovement();
         }
     }
 }

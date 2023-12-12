@@ -15,6 +15,7 @@ namespace MushroomsUnity3DExample
 		private const int MaxPlayer = 2;
 
 		private int _gameElementInGameAmount;
+		private int _numberOfPlayersWhoEndedLevel;
 		private Dictionary<string, int> _userIdToTeam = new Dictionary<string, int>();
 
 		// This method is called when an instance of your the game is created
@@ -50,11 +51,16 @@ namespace MushroomsUnity3DExample
             int team = base.PlayerCount - 1;
 			_userIdToTeam.Add(playerJoining.ConnectUserId, team);
 			playerJoining.Send("SetTeam", team);
+			playerJoining.Send("SetPlayerId", playerJoining.ConnectUserId);
 
-			//request one of the current player to send the joining player infos
+            //request one of the current player to send the joining player infos and set player count for all
+            Console.WriteLine("set player count " + base.PlayerCount);
+            playerJoining.Send("SetPlayerCount", base.PlayerCount);
 			foreach (Player player in base.Players)
 			{
-				if (player.ConnectUserId == playerJoining.ConnectUserId)
+                player.Send("SetPlayerCount", base.PlayerCount);
+
+                if (player.ConnectUserId == playerJoining.ConnectUserId)
 				{
 					continue;
 				}
@@ -188,7 +194,35 @@ namespace MushroomsUnity3DExample
                         player.Send("CorrectBall", correctBallId, correctBallX, correctBallY, correctBallZ);
                     }
                     break;
-
+				case "SetBallMoves":
+                    Console.WriteLine($"set ball moves of player {playerSender.Id}");
+					string setMoveBallId =  message.GetString(0);
+					int moves =  message.GetInt(1);
+                    foreach (Player player in base.Players)
+                    {
+                        player.Send("SetBallMoves", setMoveBallId, moves);
+                    }
+                    break;
+				case "HasEndedLevel":
+					_numberOfPlayersWhoEndedLevel++;
+					Console.WriteLine($"{_numberOfPlayersWhoEndedLevel}/{PlayerCount} players have ended level");
+                    if (_numberOfPlayersWhoEndedLevel >= base.PlayerCount)
+					{
+                        Broadcast("EndLevel");
+                    }
+					break;
+				case "BallDisappear":
+                    string disappearBallId = message.GetString(0);
+                    Console.WriteLine($"ball {disappearBallId} disappear");
+                    foreach (Player player in base.Players)
+                    {
+						if (player == playerSender)
+						{
+							continue;
+						}
+                        player.Send("BallDisappear", disappearBallId);
+                    }
+                    break;
             }
 		}
 	}

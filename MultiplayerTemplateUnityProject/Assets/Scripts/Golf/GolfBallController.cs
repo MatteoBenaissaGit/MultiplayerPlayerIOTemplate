@@ -8,6 +8,8 @@ namespace Golf
 {
     public class GolfBallController : GameElementController
     {
+        public int NumberOfMoves { get; set; }
+        
         public GolfBallController(GameElementData data, GameElementView view) : base(data, view)
         {
             
