@@ -1,5 +1,7 @@
-﻿using PlayerIOClient;
+﻿using Golf;
+using PlayerIOClient;
 using UnityEngine;
+using Views.Golf;
 
 namespace Multiplayer
 {
@@ -86,9 +88,9 @@ namespace Multiplayer
             string createGameElementType = m.GetString(0);
             string createGameElementId = m.GetString(1);
             string createGameElementOwnerId = m.GetString(2);
-            Vector2Int gameElementCreateCoordinates = new Vector2Int(m.GetInt(3), m.GetInt(4));
-            int createGameElementTeam = m.GetInt(5);
-            PlayerGameManager.Instance.UI.DebugMessage($"create Element {createGameElementType}_{createGameElementId} for {createGameElementOwnerId}, at {gameElementCreateCoordinates.x},{gameElementCreateCoordinates.y}");
+            Vector3 gameElementCreateCoordinates = new Vector3(m.GetFloat(3), m.GetFloat(4), m.GetFloat(5));
+            int createGameElementTeam = m.GetInt(6);
+            PlayerGameManager.Instance.UI.DebugMessage($"create Element {createGameElementType}_{createGameElementId} for {createGameElementOwnerId}, at {gameElementCreateCoordinates}");
             GameElementsManager.Instance.CreateGameElementAt(
                 createGameElementType, 
                 createGameElementId,
@@ -106,7 +108,7 @@ namespace Multiplayer
         public override void Receive(Message m)
         {
             string gameElementId = m.GetString(0);
-            Vector2Int moveCoordinates = new Vector2Int(m.GetInt(1), m.GetInt(2));
+            Vector3 moveCoordinates = new Vector3(m.GetFloat(1), m.GetFloat(2), m.GetFloat(3));
             PlayerGameManager.Instance.UI.DebugMessage(
                 $"move element {gameElementId} to {moveCoordinates.x},{moveCoordinates.y}");
             GameElementsManager.Instance.MoveGameElement(gameElementId, moveCoordinates);
@@ -137,8 +139,8 @@ namespace Multiplayer
             string getGameElementType = m.GetString(0);
             string getGameElementId = m.GetString(1);
             string getGameElementOwnerId = m.GetString(2);
-            Vector2Int getGameElementCreateCoordinates = new Vector2Int(m.GetInt(3), m.GetInt(4));
-            int getGameElementTeam = m.GetInt(5);
+            Vector3 getGameElementCreateCoordinates = new Vector3(m.GetFloat(3), m.GetFloat(4), m.GetFloat(5));
+            int getGameElementTeam = m.GetInt(6);
             PlayerGameManager.Instance.UI.DebugMessage("get game Element from server");
             GameElementsManager.Instance.GetGameElementDataFromServer(
                 getGameElementType,
@@ -160,4 +162,47 @@ namespace Multiplayer
             GameElementsManager.Instance.SendAllGameElementsDataToServer();
         }
     }
+
+    public class ReceiveLaunchBall : ServerMessageReceiver
+    {
+        public override void Receive(Message m)
+        {
+            string getGameElementId = m.GetString(0);
+            string getGameElementOwnerId = m.GetString(1);
+            float strength = m.GetFloat(2);
+            float direction = m.GetFloat(3);
+
+            GolfBallController ball = (GolfBallController)GameElementsManager.Instance.GetGameElementFromID(getGameElementId);
+            if (ball == null)
+            {
+                Debug.LogError("ball not found");
+                return;
+            }
+            
+            ball.LaunchBall(direction,strength);
+        }
+    }
+
+    public class ReceiveCorrectBall : ServerMessageReceiver
+    {
+        public override void Receive(Message m)
+        {
+            string getGameElementId = m.GetString(0);
+            float ballX = m.GetFloat(1);
+            float ballY = m.GetFloat(2);
+            float ballZ = m.GetFloat(3);
+            
+            GolfBallController ball = (GolfBallController)GameElementsManager.Instance.GetGameElementFromID(getGameElementId);
+            if (ball == null)
+            {
+                Debug.LogError("ball not found");
+                return;
+            }
+
+            PlayerGameManager.Instance.UI.DebugMessage("correct ball position");
+            GolfBallView view = (GolfBallView)ball.View;
+            view.CorrectPosition(new Vector3(ballX,ballY,ballZ));
+        }
+    }
+    
 }

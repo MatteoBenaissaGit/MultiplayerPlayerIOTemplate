@@ -67,3 +67,16 @@ C:\Users\benma\Documents\MultiplayerPlayerIOTemplate\Serverside Code\Player.IO T
 C:\Users\benma\Documents\MultiplayerPlayerIOTemplate\Serverside Code\Player.IO Test Server Project\obj\Debug\Test Server.pdb
 C:\Users\benma\Documents\MultiplayerPlayerIOTemplate\Serverside Code\Player.IO Test Server Project\bin\Debug\MultiplayerTemplate.dll
 C:\Users\benma\Documents\MultiplayerPlayerIOTemplate\Serverside Code\Player.IO Test Server Project\bin\Debug\MultiplayerTemplate.pdb
+C:\Users\matteo.benaissa\Documents\MultiplayerPlayerIOTemplate\Serverside Code\Player.IO Test Server Project\bin\Debug\Test Server.exe.config
+C:\Users\matteo.benaissa\Documents\MultiplayerPlayerIOTemplate\Serverside Code\Player.IO Test Server Project\bin\Debug\Test Server.exe
+C:\Users\matteo.benaissa\Documents\MultiplayerPlayerIOTemplate\Serverside Code\Player.IO Test Server Project\bin\Debug\Test Server.pdb
+C:\Users\matteo.benaissa\Documents\MultiplayerPlayerIOTemplate\Serverside Code\Player.IO Test Server Project\bin\Debug\MultiplayerTemplate.dll
+C:\Users\matteo.benaissa\Documents\MultiplayerPlayerIOTemplate\Serverside Code\Player.IO Test Server Project\bin\Debug\Player.IO Development Server.exe
+C:\Users\matteo.benaissa\Documents\MultiplayerPlayerIOTemplate\Serverside Code\Player.IO Test Server Project\bin\Debug\Player.IO GameLibrary.dll
+C:\Users\matteo.benaissa\Documents\MultiplayerPlayerIOTemplate\Serverside Code\Player.IO Test Server Project\bin\Debug\MultiplayerTemplate.pdb
+C:\Users\matteo.benaissa\Documents\MultiplayerPlayerIOTemplate\Serverside Code\Player.IO Test Server Project\bin\Debug\Player.IO GameLibrary.xml
+C:\Users\matteo.benaissa\Documents\MultiplayerPlayerIOTemplate\Serverside Code\Player.IO Test Server Project\obj\Debug\Player.IO Test Server.csproj.AssemblyReference.cache
+C:\Users\matteo.benaissa\Documents\MultiplayerPlayerIOTemplate\Serverside Code\Player.IO Test Server Project\obj\Debug\Player.IO Test Server.csproj.CoreCompileInputs.cache
+C:\Users\matteo.benaissa\Documents\MultiplayerPlayerIOTemplate\Serverside Code\Player.IO Test Server Project\obj\Debug\Player.IO Test Server.csproj.CopyComplete
+C:\Users\matteo.benaissa\Documents\MultiplayerPlayerIOTemplate\Serverside Code\Player.IO Test Server Project\obj\Debug\Test Server.exe
+C:\Users\matteo.benaissa\Documents\MultiplayerPlayerIOTemplate\Serverside Code\Player.IO Test Server Project\obj\Debug\Test Server.pdb

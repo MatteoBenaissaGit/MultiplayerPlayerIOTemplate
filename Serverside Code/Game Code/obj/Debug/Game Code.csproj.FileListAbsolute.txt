@@ -43,3 +43,12 @@ C:\Users\benma\Documents\MultiplayerPlayerIOTemplate\Serverside Code\Game Code\b
 C:\Users\benma\Documents\MultiplayerPlayerIOTemplate\Serverside Code\Game Code\bin\Debug\MultiplayerTemplate.pdb
 C:\Users\benma\Documents\MultiplayerPlayerIOTemplate\Serverside Code\Game Code\obj\Debug\MultiplayerTemplate.dll
 C:\Users\benma\Documents\MultiplayerPlayerIOTemplate\Serverside Code\Game Code\obj\Debug\MultiplayerTemplate.pdb
+C:\Users\matteo.benaissa\Documents\MultiplayerPlayerIOTemplate\Serverside Code\Game Code\bin\Debug\MultiplayerTemplate.dll
+C:\Users\matteo.benaissa\Documents\MultiplayerPlayerIOTemplate\Serverside Code\Game Code\bin\Debug\MultiplayerTemplate.pdb
+C:\Users\matteo.benaissa\Documents\MultiplayerPlayerIOTemplate\Serverside Code\Game Code\bin\Debug\Player.IO GameLibrary.dll
+C:\Users\matteo.benaissa\Documents\MultiplayerPlayerIOTemplate\Serverside Code\Game Code\bin\Debug\Player.IO GameLibrary.xml
+C:\Users\matteo.benaissa\Documents\MultiplayerPlayerIOTemplate\Serverside Code\Game Code\obj\Debug\Game Code.csproj.AssemblyReference.cache
+C:\Users\matteo.benaissa\Documents\MultiplayerPlayerIOTemplate\Serverside Code\Game Code\obj\Debug\Game Code.csproj.CoreCompileInputs.cache
+C:\Users\matteo.benaissa\Documents\MultiplayerPlayerIOTemplate\Serverside Code\Game Code\obj\Debug\Game Code.csproj.CopyComplete
+C:\Users\matteo.benaissa\Documents\MultiplayerPlayerIOTemplate\Serverside Code\Game Code\obj\Debug\MultiplayerTemplate.dll
+C:\Users\matteo.benaissa\Documents\MultiplayerPlayerIOTemplate\Serverside Code\Game Code\obj\Debug\MultiplayerTemplate.pdb

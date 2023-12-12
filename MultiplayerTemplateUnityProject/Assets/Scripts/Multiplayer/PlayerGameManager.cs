@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Common;
+using Golf;
 using PlayerIOClient;
 using UnityEngine;
 using Views;
@@ -14,6 +15,8 @@ namespace Multiplayer
 		public Connection PlayerIoConnection { get; private set; }
 		public int Team { get; set; }
 		public int Turn { get; private set; }
+		
+		[field:SerializeField] public GolfLevelManager CurrentGolfLevel { get; private set; }
 	
 		[SerializeField] private bool _useLocalServer;
 		[SerializeField] private string _gameId;
@@ -40,6 +43,8 @@ namespace Multiplayer
 			_receivedMessageToMethod.Add("DestroyGameElement", new ReceiveDestroyGameElement());
 			_receivedMessageToMethod.Add("SendGameElementsToServer", new ReceiveSendGameElementsToServer());
 			_receivedMessageToMethod.Add("GetGameElementFromServer", new ReceiveGetGameElementFromServer());
+			_receivedMessageToMethod.Add("LaunchBall", new ReceiveLaunchBall());
+			_receivedMessageToMethod.Add("CorrectBall", new ReceiveCorrectBall());
 		
 			//set the application to run in background
 			Application.runInBackground = true;
@@ -155,6 +160,15 @@ namespace Multiplayer
 		{
 			bool isMyTurn = Turn % 2 == Team;
 			return isMyTurn;
+		}
+
+		public void SetEndTurn()
+		{
+			Turn++;
+			PlayerIoConnection.Send("SetTurn",Turn);
+
+			Vector3 position = CurrentGolfLevel.PlayerBall.Data.Position;
+			PlayerIoConnection.Send("CorrectBallPosition", CurrentGolfLevel.PlayerBall.Data.ID, position.x, position.y, position.z);
 		}
 	}
 }

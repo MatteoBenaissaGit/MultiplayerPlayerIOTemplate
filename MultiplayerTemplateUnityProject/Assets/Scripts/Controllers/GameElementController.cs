@@ -14,10 +14,10 @@ namespace Controllers
             View = view;
         }
         
-        public void MoveTo(Vector2Int coordinates)
+        public void MoveTo(Vector3 coordinates)
         {
-            Data.Coordinates = coordinates;
-            View.MoveTo(Data.Coordinates);
+            Data.Position = coordinates;
+            View.MoveTo(Data.Position);
         }
     }
 }

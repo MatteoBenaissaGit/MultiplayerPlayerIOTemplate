@@ -94,29 +94,31 @@ namespace MushroomsUnity3DExample
                         player.Send("SetTurn", turn);
                     }
                     break;
-                case "CreateGameElement":
+                case "CreateGameElement": //z
 					string gameElementType = message.GetString(0);
 					string gameElementId = _gameElementInGameAmount.ToString();
 					string ownerId = playerSender.ConnectUserId;
-					int createX = message.GetInt(1);
-					int createY = message.GetInt(2);
+					float createX = message.GetFloat(1);
+                    float createY = message.GetFloat(2);
+                    float createZ = message.GetFloat(3);
 					int team = _userIdToTeam[ownerId];
 					Console.WriteLine($"create game Element from {playerSender.ConnectUserId} : {gameElementType}");
 					foreach (Player player in base.Players)
 					{
 						Console.WriteLine($"-> {player.Id}");
-						player.Send("CreateGameElement", gameElementType, gameElementId, ownerId, createX, createY, team);
+						player.Send("CreateGameElement", gameElementType, gameElementId, ownerId, createX, createY, createZ, team);
 					}
                     _gameElementInGameAmount++;
 					break;
-				case "MoveGameElement":
-					string gameElementID = message.GetString(0);
-					int moveX = message.GetInt(1);
-					int moveY = message.GetInt(2);
+				case "MoveGameElement": //z
+                    string gameElementID = message.GetString(0);
+                    float moveX = message.GetFloat(1);
+                    float moveY = message.GetFloat(2);
+                    float moveZ = message.GetFloat(3);
 					Console.WriteLine($"move game Element from {playerSender.ConnectUserId} : {gameElementID} to {moveX},{moveY}");
 					foreach (Player player in base.Players)
 					{
-						player.Send("MoveGameElement", gameElementID, message.GetInt(1), message.GetInt(2));
+						player.Send("MoveGameElement", gameElementID, moveX, moveY, moveZ);
 					}
 					break;
                 case "DestroyGameElement":
@@ -126,14 +128,15 @@ namespace MushroomsUnity3DExample
                         player.Send("DestroyGameElement", destroyGameElementID);
                     }
                     break;
-                case "SendGameElementToPlayers":
+                case "SendGameElementToPlayers": //z
                     Console.WriteLine("received : SendGameElementToPlayers");
                     string getGameElementType = message.GetString(0);
 					string getGameElementtId = message.GetString(1);
 					string getGameElementOwnerId = message.GetString(2);
-					int getGameElementX = message.GetInt(3);
-					int getGameElementY = message.GetInt(4);
-					int getGameElementTeam = message.GetInt(5);
+					float getGameElementX = message.GetFloat(3);
+                    float getGameElementY = message.GetFloat(4);
+                    float getGameElementZ = message.GetFloat(5);
+					int getGameElementTeam = message.GetInt(6);
 					foreach (Player player in base.Players)
 					{
 						if (player.ConnectUserId == playerSender.ConnectUserId)
@@ -141,7 +144,10 @@ namespace MushroomsUnity3DExample
 							continue;
 						}
 						Console.WriteLine($"-> send game elemnt to player {player.Id}");
-						player.Send("GetGameElementFromServer", getGameElementType, getGameElementtId, getGameElementOwnerId, getGameElementX, getGameElementY, getGameElementTeam);
+						player.Send("GetGameElementFromServer",
+							getGameElementType, getGameElementtId, getGameElementOwnerId, 
+							getGameElementX, getGameElementY, getGameElementZ, 
+							getGameElementTeam);
 					}
 					break;
 				case "SendGameInfosToPlayers":
@@ -156,7 +162,34 @@ namespace MushroomsUnity3DExample
 						player.Send("GetGameInfosFromServer", turnInfo);
 					}
 					break;
-			}
+				case "RequestToLaunchBall":
+					Console.WriteLine($"request to launch ball from player {playerSender.Id}");
+					string launchBallId = message.GetString(0);
+					string launchBallOwnerId = message.GetString(1);
+                    float launchBallStrength = message.GetFloat(2);
+                    float launchBallDirection = message.GetFloat(3);
+                    foreach (Player player in base.Players)
+                    {
+                        player.Send("LaunchBall", launchBallId, launchBallOwnerId, launchBallStrength, launchBallDirection);
+                    }
+                    break;
+				case "CorrectBallPosition":
+                    Console.WriteLine($"request to CorrectBallPosition from player {playerSender.Id}");
+                    string correctBallId = message.GetString(0);
+                    float correctBallX = message.GetFloat(1);
+                    float correctBallY = message.GetFloat(2);
+                    float correctBallZ = message.GetFloat(3);
+                    foreach (Player player in base.Players)
+                    {
+                        if (player.ConnectUserId == playerSender.ConnectUserId)
+                        {
+                            continue;
+                        }
+                        player.Send("CorrectBall", correctBallId, correctBallX, correctBallY, correctBallZ);
+                    }
+                    break;
+
+            }
 		}
 	}
 }
