@@ -125,7 +125,6 @@ namespace Multiplayer
 
         public void GetGameElementDataFromServer(string type, string id, string ownerID, Vector3 position, int team)
         {
-            Debug.LogError("get game element data from server");
             CreateGameElementAt(type, id, ownerID, position, team);
         }
 

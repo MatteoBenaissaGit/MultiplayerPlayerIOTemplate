@@ -122,6 +122,7 @@ namespace Views.Golf
         public void SetBallUI(bool show)
         {
             _directionUI.gameObject.SetActive(show);
+            PlayerGameManager.Instance.UI.SetPlayUI(show);
         }
 
         public void Disappear()

@@ -171,6 +171,9 @@ namespace Multiplayer
 			}
 			
 			Turn = turn;
+
+			UI.SetPlayUI(Turn == Team);
+
 			UI.SetTurnUI();
 		}
 	

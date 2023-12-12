@@ -1,5 +1,6 @@
 ﻿using System;
 using Controllers;
+using DG.Tweening;
 using Golf;
 using Multiplayer;
 using TMPro;
@@ -12,6 +13,7 @@ namespace Views
     public class GameUI : MonoBehaviour
     {
         [SerializeField] private TMP_Text _turnText;
+        [SerializeField] private Transform _turnUI;
         [SerializeField] private DebugMessageUI _debugMessagePrefab;
         [SerializeField] private Transform _debugMessageLayout;
         [SerializeField] private Slider _strengthSlider, _directionSlider;
@@ -24,6 +26,7 @@ namespace Views
         public void SetPlayerUI(string playerId)
         {
             _playerIdText.text = playerId;
+            _resultsLayout.gameObject.SetActive(false);
         }
         
         public void SetTurnUI()
@@ -96,11 +99,17 @@ namespace Views
 
         public void ShowResults()
         {
-            _turnText.gameObject.gameObject.SetActive(false);
+            _turnUI.DOScaleY(0, 0.5f);
+            
+            _resultsLayout.gameObject.SetActive(true);
+            Vector3 scale = _resultsLayout.localScale;
+            _resultsLayout.localScale = new Vector3(scale.x, 0, scale.z);
+            _resultsLayout.DOScaleY(scale.y, 0.5f);
+            
             foreach (GolfBallController ball in GameElementsManager.Instance.Balls)
             {
                 ResultView result = Instantiate(_resultPrefab, _resultsLayout);
-                result.Set(ball.Data.ElementOwnerID, ball.NumberOfMoves-1);
+                result.Set(ball.Data.ElementOwnerID, ball.NumberOfMoves - (PlayerGameManager.Instance.PlayerCount-1));
             }
         }
     }
