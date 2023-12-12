@@ -82,17 +82,7 @@ namespace Multiplayer
             int team = m.GetInt(0);
             PlayerGameManager.Instance.UI.DebugMessage($"set team {team}");
             PlayerGameManager.Instance.Team = team;
-        
-            //set the camera
-            if (PlayerGameManager.Instance.Team >= PlayerGameManager.Instance.Cameras.Length)
-            {
-                Debug.LogError("No camera for this player");
-            }
-            for (int i = 0; i < PlayerGameManager.Instance.Cameras.Length; i++)
-            {
-                PlayerGameManager.Instance.Cameras[i].gameObject.SetActive(PlayerGameManager.Instance.Team == i);
-            }
-            
+
             //set the game
             GameElementsManager.Instance.Initialize();
         }

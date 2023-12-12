@@ -26,6 +26,7 @@ namespace Views
         public void SetPlayerUI(string playerId)
         {
             _playerIdText.text = playerId;
+            _playerIdText.color = PlayerGameManager.Instance.PlayerColors[PlayerGameManager.Instance.Team];
             _resultsLayout.gameObject.SetActive(false);
         }
         

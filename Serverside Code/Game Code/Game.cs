@@ -12,11 +12,13 @@ namespace MushroomsUnity3DExample
 	[RoomType("UnityBaseRoom")]
 	public class GameCode : Game<Player>
 	{
-		private const int MaxPlayer = 2;
+		private const int MaxPlayer = 4;
 
 		private int _gameElementInGameAmount;
 		private int _numberOfPlayersWhoEndedLevel;
 		private Dictionary<string, int> _userIdToTeam = new Dictionary<string, int>();
+		private Dictionary<string, string> _playerConnectedIdToInGameId = new Dictionary<string, string>();
+		private Dictionary<string, string> _inGameIdToPlayerConnected = new Dictionary<string, string>();
 
 		// This method is called when an instance of your the game is created
 		public override void GameStarted()
@@ -51,15 +53,22 @@ namespace MushroomsUnity3DExample
             int team = base.PlayerCount - 1;
 			_userIdToTeam.Add(playerJoining.ConnectUserId, team);
 			playerJoining.Send("SetTeam", team);
-			playerJoining.Send("SetPlayerId", playerJoining.ConnectUserId);
+			string inGameId = "player " + PlayerCount;
+            playerJoining.Send("SetPlayerId", inGameId);
+			_playerConnectedIdToInGameId.Add(playerJoining.ConnectUserId, inGameId);
+            _inGameIdToPlayerConnected.Add(inGameId, playerJoining.ConnectUserId);
 
-            //request one of the current player to send the joining player infos and set player count for all
+            //set player count for all
             Console.WriteLine("set player count " + base.PlayerCount);
             playerJoining.Send("SetPlayerCount", base.PlayerCount);
-			foreach (Player player in base.Players)
+			foreach(Player player in base.Players)
 			{
                 player.Send("SetPlayerCount", base.PlayerCount);
+            }
 
+            //request one of the current player to send the joining player infos
+			foreach (Player player in base.Players)
+			{
                 if (player.ConnectUserId == playerJoining.ConnectUserId)
 				{
 					continue;
@@ -103,11 +112,11 @@ namespace MushroomsUnity3DExample
                 case "CreateGameElement": //z
 					string gameElementType = message.GetString(0);
 					string gameElementId = _gameElementInGameAmount.ToString();
-					string ownerId = playerSender.ConnectUserId;
+					string ownerId = _playerConnectedIdToInGameId[playerSender.ConnectUserId];
 					float createX = message.GetFloat(1);
                     float createY = message.GetFloat(2);
                     float createZ = message.GetFloat(3);
-					int team = _userIdToTeam[ownerId];
+					int team = _userIdToTeam[_inGameIdToPlayerConnected[ownerId]]; // !!!!
 					Console.WriteLine($"create game Element from {playerSender.ConnectUserId} : {gameElementType}");
 					foreach (Player player in base.Players)
 					{

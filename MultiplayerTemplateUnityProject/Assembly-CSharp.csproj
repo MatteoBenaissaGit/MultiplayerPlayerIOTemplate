@@ -52,19 +52,25 @@
      <Compile Include="Assets\Scripts\Multiplayer\ServerMessageReceiver.cs" />
      <Compile Include="Assets\Scripts\Golf\GolfEndController.cs" />
      <Compile Include="Assets\Scripts\Views\DebugMessageUI.cs" />
+     <Compile Include="Assets\Suriyun\Scripts\Camera Scripts\MouseOrbitImproved.cs" />
      <Compile Include="Assets\Scripts\Multiplayer\GameElementsManager.cs" />
      <Compile Include="Assets\Scripts\Views\Golf\ResultView.cs" />
      <Compile Include="Assets\Scripts\Multiplayer\PlayerGameManager.cs" />
+     <Compile Include="Assets\Suriyun\Scripts\AnimatorController.cs" />
      <Compile Include="Assets\Scripts\Controllers\GameElementData.cs" />
      <Compile Include="Assets\Scripts\Golf\GolfBallController.cs" />
      <Compile Include="Assets\Scripts\Views\Golf\GolfBallView.cs" />
      <Compile Include="Assets\Scripts\Controllers\GameElementController.cs" />
      <Compile Include="Assets\Scripts\Golf\GolfLevelManager.cs" />
      <Folder Include="Assets" />
+     <Folder Include="Assets\Suriyun\UI" />
      <Folder Include="Assets\Visual\kenney_minigolf-kit\Models\OBJ format" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
+     <Folder Include="Assets\Suriyun\Monster Pack Fire\Animations\Cute Phoenix" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
+     <Folder Include="Assets\Suriyun\Monster Pack Fire\Animations\Golem" />
      <Folder Include="Assets\TextMesh Pro\Sprites" />
+     <Folder Include="Assets\Suriyun\Monster Pack Fire\Animations\Gazer" />
      <Folder Include="Assets\Visual\PhysicsMaterial" />
      <Folder Include="Assets\TextMesh Pro\Resources\Sprite Assets" />
      <Folder Include="Assets\Visual\kenney_minigolf-kit\Models\GLB format\Textures" />
@@ -72,8 +78,11 @@
      <Folder Include="Assets\Hierarchy 2" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
      <Folder Include="Assets\Scripts\Common" />
+     <Folder Include="Assets\Suriyun\Monster Pack Fire\Textures\Fire Pig" />
+     <Folder Include="Assets\Suriyun\Monster Pack Fire\Textures\Minotos" />
      <Folder Include="Assets\Customizable Skybox\Stylized Sky" />
      <Folder Include="Assets\Scripts\Golf" />
+     <Folder Include="Assets\Suriyun\Monster Pack Fire\Prefab\Tampora" />
      <Folder Include="Assets\TextMesh Pro\Resources\Fonts &amp; Materials" />
      <Folder Include="Assets\Visual\kenney_minigolf-kit\Models" />
      <Folder Include="Assets\Customizable Skybox\Model" />
@@ -81,24 +90,39 @@
      <None Include="Assets\Visual\kenney_minigolf-kit\License.txt" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
      <Folder Include="Assets\TextMesh Pro\Resources" />
+     <Folder Include="Assets\Suriyun\Monster Pack Fire\Prefab" />
      <Folder Include="Assets\Customizable Skybox\Stylized Sky\Shaders" />
+     <Folder Include="Assets\Suriyun\Monster Pack Fire\Textures" />
+     <Folder Include="Assets\Suriyun\Monster Pack Fire\Materials\Minotos" />
+     <Folder Include="Assets\Suriyun\Monster Pack Fire\Materials\Gazer" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
      <Folder Include="Assets\Visual\kenney_minigolf-kit\Models\FBX format" />
      <Folder Include="Assets\Visual\Fonts" />
      <Folder Include="Assets\TextMesh Pro" />
+     <None Include="Assets\Suriyun\README.txt" />
      <Folder Include="Assets\Visual\kenney_minigolf-kit\Models\GLB format" />
+     <Folder Include="Assets\Suriyun\Monster Pack Fire\Prefab\Cute Phoenix" />
      <Folder Include="Assets\Scripts\Views\Golf" />
+     <Folder Include="Assets\Suriyun\Monster Pack Fire\Prefab\Fire Gazer" />
      <Folder Include="Assets\Customizable Skybox\Stylized Sky\Materials" />
      <Folder Include="Assets\Hierarchy 2\Editor Resources\Icons" />
+     <Folder Include="Assets\Suriyun" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />
      <Folder Include="Assets\Customizable Skybox\Model\Materials" />
+     <Folder Include="Assets\Suriyun\Monster Pack Fire\Textures\Gazer" />
      <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF.shader" />
      <Folder Include="Assets\Visual\kenney_minigolf-kit\Models\OBJ format\Textures" />
+     <Folder Include="Assets\Suriyun\Monster Pack Fire" />
+     <Folder Include="Assets\Suriyun\Monster Pack Fire\Prefab\Minotos" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile SSD.shader" />
      <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
+     <Folder Include="Assets\Suriyun\Monster Pack Fire\Animations\Tampora" />
+     <Folder Include="Assets\Suriyun\Monster Pack Fire\Textures\Golem" />
+     <Folder Include="Assets\Suriyun\Monster Pack Fire\FBX" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
+     <Folder Include="Assets\Suriyun\Scripts" />
      <Folder Include="Assets\Data" />
      <Folder Include="Assets\Visual\kenney_minigolf-kit\Models\Textures" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
@@ -106,24 +130,37 @@
      <Folder Include="Assets\Visual\kenney_minigolf-kit" />
      <Folder Include="Assets\TextMesh Pro\Resources\Style Sheets" />
      <Folder Include="Assets\TextMesh Pro\Fonts" />
+     <Folder Include="Assets\Suriyun\Monster Pack Fire\Materials\Golem" />
      <Folder Include="Assets\Resources" />
      <Folder Include="Assets\Customizable Skybox\Materials" />
      <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
      <Folder Include="Assets\Visual" />
+     <Folder Include="Assets\Suriyun\Monster Pack Fire\Animations" />
      <None Include="Assets\Customizable Skybox\Stylized Sky\Shaders\Stylized Sky.shader" />
+     <Folder Include="Assets\Suriyun\Monster Pack Fire\Materials\Fire Pig" />
      <Folder Include="Assets\Customizable Skybox\Scenes" />
+     <Folder Include="Assets\Suriyun\Monster Pack Fire\Materials\Cute Phoenix" />
      <Folder Include="Assets\Scenes" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
+     <Folder Include="Assets\Suriyun\Monster Pack Fire\Textures\Tampora" />
+     <Folder Include="Assets\Suriyun\Monster Pack Fire\Animations\Fire Pig" />
      <Folder Include="Assets\Scripts\Controllers" />
+     <Folder Include="Assets\Suriyun\Monster Pack Fire\Animations\Minotos" />
+     <Folder Include="Assets\Suriyun\Monster Pack Fire\Materials\Tampora" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
+     <Folder Include="Assets\Suriyun\Monster Pack Fire\Prefab\Fire Pig" />
+     <Folder Include="Assets\Suriyun\Scripts\Camera Scripts" />
      <Folder Include="Assets\Scripts" />
      <Folder Include="Assets\Hierarchy 2\Editor Resources" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
      <Folder Include="Assets\Prefabs" />
      <Folder Include="Assets\Scripts\Multiplayer" />
+     <Folder Include="Assets\Suriyun\Monster Pack Fire\Materials" />
      <None Include="Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
      <Folder Include="Assets\Visual\kenney_minigolf-kit\Models\FBX format\Textures" />
      <Folder Include="Assets\TextMesh Pro\Documentation" />
+     <Folder Include="Assets\Suriyun\Monster Pack Fire\Textures\Cute Phoenix" />
+     <Folder Include="Assets\Suriyun\Monster Pack Fire\Prefab\Golem" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader" />
      <Folder Include="Assets\Visual\kenney_minigolf-kit\Previews" />
      <None Include="Assets\TextMesh Pro\Sprites\EmojiOne.json" />
@@ -765,8 +802,14 @@
      <Reference Include="Unity.2D.IK.Runtime">
      <HintPath>C:\Users\matteo.benaissa\Documents\MultiplayerPlayerIOTemplate\MultiplayerTemplateUnityProject\Library\ScriptAssemblies\Unity.2D.IK.Runtime.dll</HintPath>
      </Reference>
+     <Reference Include="Unity.RenderPipelines.Core.Runtime">
+     <HintPath>C:\Users\matteo.benaissa\Documents\MultiplayerPlayerIOTemplate\MultiplayerTemplateUnityProject\Library\ScriptAssemblies\Unity.RenderPipelines.Core.Runtime.dll</HintPath>
+     </Reference>
      <Reference Include="PsdPlugin">
      <HintPath>C:\Users\matteo.benaissa\Documents\MultiplayerPlayerIOTemplate\MultiplayerTemplateUnityProject\Library\ScriptAssemblies\PsdPlugin.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.Toonshader">
+     <HintPath>C:\Users\matteo.benaissa\Documents\MultiplayerPlayerIOTemplate\MultiplayerTemplateUnityProject\Library\ScriptAssemblies\Unity.Toonshader.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Burst.Editor">
      <HintPath>C:\Users\matteo.benaissa\Documents\MultiplayerPlayerIOTemplate\MultiplayerTemplateUnityProject\Library\ScriptAssemblies\Unity.Burst.Editor.dll</HintPath>
@@ -776,6 +819,9 @@
      </Reference>
      <Reference Include="Unity.2D.Common.Path.Editor">
      <HintPath>C:\Users\matteo.benaissa\Documents\MultiplayerPlayerIOTemplate\MultiplayerTemplateUnityProject\Library\ScriptAssemblies\Unity.2D.Common.Path.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.Timeline.Editor">
+     <HintPath>C:\Users\matteo.benaissa\Documents\MultiplayerPlayerIOTemplate\MultiplayerTemplateUnityProject\Library\ScriptAssemblies\Unity.Timeline.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VisualStudio.Editor">
      <HintPath>C:\Users\matteo.benaissa\Documents\MultiplayerPlayerIOTemplate\MultiplayerTemplateUnityProject\Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll</HintPath>
@@ -801,6 +847,9 @@
      <Reference Include="Unity.2D.Sprite.Editor">
      <HintPath>C:\Users\matteo.benaissa\Documents\MultiplayerPlayerIOTemplate\MultiplayerTemplateUnityProject\Library\ScriptAssemblies\Unity.2D.Sprite.Editor.dll</HintPath>
      </Reference>
+     <Reference Include="Unity.RenderPipelines.Core.Editor">
+     <HintPath>C:\Users\matteo.benaissa\Documents\MultiplayerPlayerIOTemplate\MultiplayerTemplateUnityProject\Library\ScriptAssemblies\Unity.RenderPipelines.Core.Editor.dll</HintPath>
+     </Reference>
      <Reference Include="Unity.InternalAPIEngineBridge.001">
      <HintPath>C:\Users\matteo.benaissa\Documents\MultiplayerPlayerIOTemplate\MultiplayerTemplateUnityProject\Library\ScriptAssemblies\Unity.InternalAPIEngineBridge.001.dll</HintPath>
      </Reference>
@@ -815,6 +864,15 @@
      </Reference>
      <Reference Include="ParrelSync">
      <HintPath>C:\Users\matteo.benaissa\Documents\MultiplayerPlayerIOTemplate\MultiplayerTemplateUnityProject\Library\ScriptAssemblies\ParrelSync.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.Timeline">
+     <HintPath>C:\Users\matteo.benaissa\Documents\MultiplayerPlayerIOTemplate\MultiplayerTemplateUnityProject\Library\ScriptAssemblies\Unity.Timeline.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.RenderPipelines.Core.ShaderLibrary">
+     <HintPath>C:\Users\matteo.benaissa\Documents\MultiplayerPlayerIOTemplate\MultiplayerTemplateUnityProject\Library\ScriptAssemblies\Unity.RenderPipelines.Core.ShaderLibrary.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.FilmInternalUtilities">
+     <HintPath>C:\Users\matteo.benaissa\Documents\MultiplayerPlayerIOTemplate\MultiplayerTemplateUnityProject\Library\ScriptAssemblies\Unity.FilmInternalUtilities.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Collections">
      <HintPath>C:\Users\matteo.benaissa\Documents\MultiplayerPlayerIOTemplate\MultiplayerTemplateUnityProject\Library\ScriptAssemblies\Unity.Collections.dll</HintPath>
@@ -831,11 +889,17 @@
      <Reference Include="Unity.2D.PixelPerfect">
      <HintPath>C:\Users\matteo.benaissa\Documents\MultiplayerPlayerIOTemplate\MultiplayerTemplateUnityProject\Library\ScriptAssemblies\Unity.2D.PixelPerfect.dll</HintPath>
      </Reference>
+     <Reference Include="Unity.FilmInternalUtilities.Editor">
+     <HintPath>C:\Users\matteo.benaissa\Documents\MultiplayerPlayerIOTemplate\MultiplayerTemplateUnityProject\Library\ScriptAssemblies\Unity.FilmInternalUtilities.Editor.dll</HintPath>
+     </Reference>
      <Reference Include="Unity.Mathematics">
      <HintPath>C:\Users\matteo.benaissa\Documents\MultiplayerPlayerIOTemplate\MultiplayerTemplateUnityProject\Library\ScriptAssemblies\Unity.Mathematics.dll</HintPath>
      </Reference>
      <Reference Include="Unity.2D.Common.Editor">
      <HintPath>C:\Users\matteo.benaissa\Documents\MultiplayerPlayerIOTemplate\MultiplayerTemplateUnityProject\Library\ScriptAssemblies\Unity.2D.Common.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.Toonshader.Editor">
+     <HintPath>C:\Users\matteo.benaissa\Documents\MultiplayerPlayerIOTemplate\MultiplayerTemplateUnityProject\Library\ScriptAssemblies\Unity.Toonshader.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.TextMeshPro">
      <HintPath>C:\Users\matteo.benaissa\Documents\MultiplayerPlayerIOTemplate\MultiplayerTemplateUnityProject\Library\ScriptAssemblies\Unity.TextMeshPro.dll</HintPath>

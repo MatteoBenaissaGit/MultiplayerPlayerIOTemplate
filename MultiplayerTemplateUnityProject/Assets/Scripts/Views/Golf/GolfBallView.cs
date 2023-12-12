@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Controllers;
 using DG.Tweening;
 using Golf;
@@ -9,7 +10,7 @@ namespace Views.Golf
 {
     public class GolfBallView : GameElementView
     {
-        [SerializeField] private GameObject _team1Mesh, _team2Mesh;
+        [SerializeField] private List<GameObject> _ballMeshes = new List<GameObject>();
         [SerializeField] private Transform _directionUI;
         [SerializeField] private SpriteRenderer _directionSprite;
         [SerializeField] private Rigidbody _rigidbody;
@@ -26,9 +27,11 @@ namespace Views.Golf
         public override void SetElementView(GameElementController controller)
         {
             base.SetElementView(controller);
-            
-            _team1Mesh.SetActive(Controller.Data.Team == 0);
-            _team2Mesh.SetActive(Controller.Data.Team == 1);
+
+            for (int i = 0; i < _ballMeshes.Count; i++)
+            {
+                _ballMeshes[i].SetActive(i == Controller.Data.Team);
+            }
 
             _directionSprite.color = Color.yellow;
 

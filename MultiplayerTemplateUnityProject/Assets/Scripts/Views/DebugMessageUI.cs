@@ -8,6 +8,7 @@ namespace Views
     public class DebugMessageUI : MonoBehaviour
     {
         [SerializeField] private TMP_Text _text;
+        [SerializeField] private UnityEngine.UI.Image _background;
         
         private float _timerDeath = 10f;
         private bool _isDestroying;
@@ -28,6 +29,7 @@ namespace Views
             if (_timerDeath <= 0)
             {
                 _text.DOFade(0, 2f).OnComplete(() => Destroy(gameObject));
+                _background.DOFade(0, 2f).OnComplete(() => Destroy(gameObject));
                 _isDestroying = true;
             }
         }

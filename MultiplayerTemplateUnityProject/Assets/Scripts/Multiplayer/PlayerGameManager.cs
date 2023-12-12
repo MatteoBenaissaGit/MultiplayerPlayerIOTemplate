@@ -9,7 +9,6 @@ namespace Multiplayer
 {
 	public class PlayerGameManager : Singleton<PlayerGameManager>
 	{
-		[field:SerializeField] public Camera[] Cameras { get; private set; }
 		[field:SerializeField] public GameUI UI { get; private set; }
 	
 		public Connection PlayerIoConnection { get; private set; }
@@ -20,6 +19,7 @@ namespace Multiplayer
 		public bool HasFinishedLevel { get; private set; }
 		public bool IsLevelEnded { get; set; }
 		
+		[field:SerializeField] public Color[] PlayerColors { get; set; } = new Color[] { };
 		[field:SerializeField] public GolfLevelManager CurrentGolfLevel { get; private set; }
 	
 		[SerializeField] private bool _useLocalServer;
@@ -192,6 +192,7 @@ namespace Multiplayer
 			Turn++;
 			if (Turn >= PlayerCount)
 			{
+				UI.DebugMessage($"-> Turn >= PlayerCount {PlayerCount} : turn = 0");
 				Turn = 0;
 			}
 			GolfMoves++;

@@ -1,4 +1,5 @@
-﻿using TMPro;
+﻿using Multiplayer;
+using TMPro;
 using UnityEngine;
 
 namespace Views.Golf
@@ -9,8 +10,12 @@ namespace Views.Golf
         
         public void Set(string player, int numberOfMoves)
         {
+            Color color = PlayerGameManager.Instance.PlayerColors[int.Parse(player[^1].ToString())-1];
+            
             _player.text = player;
+            _player.color = color;
             _moves.text = numberOfMoves.ToString();
+            _moves.color = color;
         }
     }
 }
